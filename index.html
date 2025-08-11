@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PeçaAq - Catálogo de Peças Automotivas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <img src="https://via.placeholder.com/160x50?text=PeçaAq" alt="Logo PeçaAq" />
+            <div class="search-wrap">
+                <input id="searchInput" placeholder="Buscar peça, marca ou modelo..." autocomplete="off" />
+                <ul id="suggestions" class="suggestions hidden"></ul>
+            </div>
+            <div class="header-actions">
+                <button id="cartBtn" class="btn small">Carrinho (0)</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-grid">
+        <aside class="sidebar">
+            <h2>Oficina</h2>
+            <section class="filter-block">
+                <h3>Oportunidades</h3>
+                <label><input type="checkbox" data-filter="opportunity" value="oferta-nitro" /> OFERTA NITRO</label>
+            </section>
+
+            <section class="filter-block">
+                <h3>Marca</h3>
+                <div id="brandList" class="checkbox-list"></div>
+                <button id="showMoreBrands" class="link-btn">Ver mais</button>
+            </section>
+
+            <section class="filter-block">
+                <h3>Categoria</h3>
+                <div id="categoryList" class="checkbox-list"></div>
+            </section>
+
+            <section class="filter-block">
+                <h3>Preço</h3>
+                <input id="priceMin" type="number" placeholder="Min R$" />
+                <input id="priceMax" type="number" placeholder="Max R$" />
+                <button id="applyPrice" class="btn small">Aplicar</button>
+            </section>
+        </aside>
+
+        <section class="content">
+            <div class="content-top">
+                <div class="products-count"><span id="productsCount">0</span> PRODUTOS</div>
+                <div class="sort-wrap">
+                    <label for="sortSelect">Ordenar por</label>
+                    <select id="sortSelect">
+                        <option value="recent">Mais Recentes</option>
+                        <option value="price-asc">Menor Preço</option>
+                        <option value="price-desc">Maior Preço</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="productsGrid" class="products-grid"></div>
+
+            <div class="pagination">
+                <button id="prevPage" class="btn small">Anterior</button>
+                <span id="pageInfo">1 / 1</span>
+                <button id="nextPage" class="btn small">Próximo</button>
+            </div>
+        </section>
+    </main>
+
+    <button id="whatsappBtn" class="whatsapp" title="Fale conosco no WhatsApp">💬</button>
+
+    <template id="productCardTpl">
+        <article class="product-card">
+            <div class="img-wrap"><img src="" alt="" /></div>
+            <h4 class="product-title"></h4>
+            <div class="price-area">
+                <div class="price">R$ <span class="price-value"></span></div>
+                <div class="installments"></div>
+            </div>
+            <button class="btn buy-btn">COMPRAR AGORA</button>
+        </article>
+    </template>
+
+<script src="scripit.js"></script>
+</body>
+
+</html>
