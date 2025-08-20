@@ -9,25 +9,38 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <img src="img/imgLogin-removebg-preview.png" alt="Logo PeçaAq" />
-            <div class="search-wrap">
-                <input id="searchInput" placeholder="Buscar peça, marca ou modelo..." autocomplete="off" />
-                <ul id="suggestions" class="suggestions hidden"></ul>
-            </div>
-            <div class="header-actions">
-                <button id="cartBtn" class="btn small">Carrinho (0)</button>
+    <header class="site-header site-header-professional">
+        <div class="header-top">
+            <div class="container header-top-inner">
+                <a href="index.html" class="logo-link">
+                    <img src="img/LogoPecaAq3.png" alt="Logo PeçaAq">
+                </a>
+                <div class="search-wrap">
+                    <input id="searchInput" placeholder="Buscar peça, marca ou modelo..." autocomplete="off">
+                    <ul id="suggestions" class="suggestions hidden"></ul>
+                </div>
+                <div class="header-actions">
+                    <button id="cartBtn" class="btn btn-cart">🛒 Carrinho (<span id="cartCount">0</span>)</button>
+                </div>
             </div>
         </div>
+        <nav class="header-nav">
+            <div class="container nav-links">
+                <a href="#" class="nav-item">Categorias</a>
+                <a href="#" class="nav-item">Marcas</a>
+                <a href="#" class="nav-item">Ofertas</a>
+                <a href="#" class="nav-item">Fale Conosco</a>
+            </div>
+        </nav>
     </header>
 
     <main class="container main-grid">
         <aside class="sidebar">
-            <h2>Oficina</h2>
+            <h2>Filtros</h2>
             <section class="filter-block">
                 <h3>Oportunidades</h3>
                 <label><input type="checkbox" data-filter="opportunity" value="oferta-nitro" /> OFERTA NITRO</label>
+                <label><input type="checkbox" data-filter="opportunity" value="loja-turbo" /> LOJA TURBO</label>
             </section>
 
             <section class="filter-block">
@@ -43,9 +56,11 @@
 
             <section class="filter-block">
                 <h3>Preço</h3>
-                <input id="priceMin" type="number" placeholder="Min R$" />
-                <input id="priceMax" type="number" placeholder="Max R$" />
-                <button id="applyPrice" class="btn small">Aplicar</button>
+                <div class="price-inputs">
+                    <input id="priceMin" type="number" placeholder="Min R$" />
+                    <input id="priceMax" type="number" placeholder="Max R$" />
+                    <button id="applyPrice" class="btn small">Aplicar</button>
+                </div>
             </section>
         </aside>
 
@@ -55,6 +70,7 @@
                 <div class="sort-wrap">
                     <label for="sortSelect">Ordenar por</label>
                     <select id="sortSelect">
+                        <option value="relevance">Relevância</option>
                         <option value="recent">Mais Recentes</option>
                         <option value="price-asc">Menor Preço</option>
                         <option value="price-desc">Maior Preço</option>
@@ -85,8 +101,39 @@
             <button class="btn buy-btn">COMPRAR AGORA</button>
         </article>
     </template>
+    
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Atendimento</h4>
+                <p>Segunda a Sexta, das 8h às 18h</p>
+                <p>E-mail: contato@pecaaq.com.br</p>
+                <p>Telefone: (11) 99999-9999</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Minha Conta</a></li>
+                    <li><a href="#">Meus Pedidos</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 PeçaAq. Todos os direitos reservados.
+        </div>
+    </footer>
 
-<script src="scripit.js"></script>
+    <script src="scripit.js"></script>
 </body>
 
 </html>

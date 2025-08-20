@@ -27,109 +27,118 @@ body {
     padding: 18px;
 }
 
-.site-header {
-    background: #3a3535;
-    border-bottom: 1px solid #eee;
-
-    top: 0;
-    z-index: 50;
-    height: 150px;
+/* --- Novo Header Profissional --- */
+.site-header-professional {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.header-inner {
+.header-top {
+    padding: 10px 0;
+}
+
+.header-top-inner {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 12px 18px;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 20px;
 }
 
-.header-inner img {
-    max-height: 150px;
-    width: auto;
-    display: block;
+.site-header-professional .logo-link img {
+    max-height: 120px;
+    transition: transform 0.2s ease;
 }
 
-.search-wrap {
-    flex: 1;
-    position: relative;
+.site-header-professional .logo-link:hover img {
+    transform: scale(1.05);
 }
 
-.search-wrap input {
+.site-header-professional .search-wrap {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.site-header-professional .search-wrap input {
     width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.suggestions {
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-top: 0;
-    max-height: 180px;
-    overflow: auto;
+.site-header-professional .search-wrap input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(46, 139, 58, 0.2);
+}
+
+.site-header-professional .btn-cart {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.site-header-professional .btn-cart:hover {
+    background-color: #16712f;
+    transform: translateY(-2px);
+}
+
+.header-nav {
+    background-color: #3a3535;
+    padding: 10px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
     list-style: none;
     margin: 0;
-    padding: 6px;
-    z-index: 100;
+    padding: 0;
 }
 
-.suggestions li {
-    padding: 8px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.suggestions li:hover {
-    background: #f0f0f0;
-}
-
-.hidden {
-    display: none;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.btn {
-    background: var(--accent);
+.nav-links .nav-item {
     color: #fff;
-    border: 0;
-    padding: 10px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.btn:hover {
-    background-color: #16712f;
-}
-
-.btn.small {
-    padding: 6px 10px;
-    font-size: 13px;
-}
-
-.link-btn {
-    background: none;
-    border: 0;
-    color: var(--accent);
-    cursor: pointer;
-    padding: 6px 0;
-    font-weight: 600;
-    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 5px 0;
+    position: relative;
     transition: color 0.2s ease;
 }
 
-.link-btn:hover {
-    color: #16712f;
+.nav-links .nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
+.nav-links .nav-item:hover {
+    color: var(--accent);
+}
+
+.nav-links .nav-item:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* --- Main Grid e Sidebar (Estilo CompreSuaPeca.com.br) --- */
 .main-grid {
     display: grid;
     grid-template-columns: 290px 1fr;
@@ -165,13 +174,37 @@ body {
     gap: 12px;
 }
 
+/* Títulos das seções de filtro */
 .filter-block h3 {
     margin: 0;
     font-size: 15px;
     font-weight: 600;
-    color: #444;
+    color: var(--accent);
     border-bottom: 1px solid #ddd;
     padding-bottom: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-block h3::after {
+    content: '▲';
+    font-size: 12px;
+    color: #555;
+    transition: transform 0.2s ease;
+}
+
+.filter-block.collapsed h3::after {
+    transform: rotate(180deg);
+}
+
+.filter-block .filter-content {
+    display: block;
+}
+
+.filter-block.collapsed .filter-content {
+    display: none;
 }
 
 .checkbox-list {
@@ -198,11 +231,50 @@ body {
     color: var(--accent);
 }
 
+/* Estilização do checkbox */
 .checkbox-list input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
     width: 16px;
     height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
     cursor: pointer;
-    accent-color: var(--accent);
+    position: relative;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox-list input[type="checkbox"]:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.checkbox-list input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.filter-block .link-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 6px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.filter-block .link-btn:hover {
+    background: #e0e0e0;
+    color: #333;
 }
 
 .filter-block input[type="number"] {
@@ -255,7 +327,7 @@ body {
     gap: 14px;
 }
 
-/* Cards */
+/* --- Cards de Produtos --- */
 .product-card {
     background: var(--card);
     border-radius: var(--radius);
@@ -332,7 +404,7 @@ body {
     background: #16712f;
 }
 
-/* Pagination */
+/* --- Paginação --- */
 .pagination {
     display: flex;
     gap: 12px;
@@ -342,7 +414,7 @@ body {
     color: var(--muted);
 }
 
-/* WhatsApp Button */
+/* --- Botão WhatsApp --- */
 .whatsapp {
     position: fixed;
     right: 20px;
@@ -358,12 +430,68 @@ body {
     cursor: pointer;
 }
 
-/* Responsive */
+/* --- Rodapé (Footer) --- */
+.site-footer {
+    background: #3a3535;
+    color: #eee;
+    padding: 40px 0 20px;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+}
+
+.footer-section p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* --- Responsividade Geral --- */
 @media (max-width: 1000px) {
     .products-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
     .main-grid {
         grid-template-columns: 240px 1fr;
         padding: 20px 14px;
@@ -375,21 +503,43 @@ body {
         grid-template-columns: 1fr;
         padding: 10px 14px;
     }
-
     .sidebar {
         position: static;
         height: auto;
         padding: 16px 12px;
     }
-
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .header-inner {
+    .header-top-inner {
         flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
+        align-items: center;
+        gap: 15px;
+    }
+    .header-top {
+        padding-bottom: 0;
+    }
+    .header-nav {
+        padding-top: 0;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .site-header-professional .logo-link img {
+        max-height: 60px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-section h4 {
+        border-left: none;
+        padding-left: 0;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 5px;
+        display: inline-block;
     }
 }
 

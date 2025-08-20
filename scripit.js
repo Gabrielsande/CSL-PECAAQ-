@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceMax = document.getElementById('priceMax');
     const applyPrice = document.getElementById('applyPrice');
     const cartBtn = document.getElementById('cartBtn');
+    const cartCount = document.getElementById('cartCount');
 
-    // Simula produtos
     createSampleProducts();
     populateFilterSets();
     renderFilterCheckboxes();
@@ -80,17 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.open(url, '_blank');
     });
 
-    // Carrinho simples
     let cart = [];
     function addToCart(p) {
         cart.push(p);
-        cartBtn.textContent = `Carrinho (${cart.length})`;
+        cartCount.textContent = cart.length;
         alert(`Produto "${p.title}" adicionado ao carrinho!`);
     }
 
-    // Cria produtos de exemplo
     function createSampleProducts() {
-        // Exemplo de produtos
         products = [
             {
                 id: 1,
@@ -99,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "Filtro",
                 price: 120.00,
                 model: "Civic 2010",
-                image: "img/FiltrodeArHondaCivi2010.jpg",  // caminho relativo para a pasta img
+                image: "img/FiltrodeArHondaCivi2010.jpg",
                 parcels: 3,
                 opportunity: true,
                 addedAt: Date.now() - 1000000
@@ -144,71 +141,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 5,
                 title: "Filtro de Óleo Fram",
                 brand: "Fram",
-                category: "Filtro", 
+                category: "Filtro",
                 price: 45.30,
-                model: "Universal", 
-                image: "img/FiltrodeOleoFram.jpg", 
-                parcels: 1, 
-                opportunity: false, 
+                model: "Universal",
+                image: "img/FiltrodeOleoFram.jpg",
+                parcels: 1,
+                opportunity: false,
                 addedAt: Date.now() - 5000000
             },
             {
-                id: 6, 
-                title: "Velas NGK Platinum", 
-                brand: "NGK", 
-                category: "Velas", 
+                id: 6,
+                title: "Velas NGK Platinum",
+                brand: "NGK",
+                category: "Velas",
                 price: 78.80,
-                model: "Universal", 
-                image: "img/VelasNGKPlatinum.jpg", 
-                parcels: 3, 
-                opportunity: true, 
+                model: "Universal",
+                image: "img/VelasNGKPlatinum.jpg",
+                parcels: 3,
+                opportunity: true,
                 addedAt: Date.now() - 6000000
             },
             {
-                id: 7, 
-                title: "Correia Dentada Gates", 
-                brand: "Gates", 
-                category: "Correia", 
+                id: 7,
+                title: "Correia Dentada Gates",
+                brand: "Gates",
+                category: "Correia",
                 price: 150.00,
-                model: "Universal", 
-                image: "img/CorreiaDentadaGates.jpg", 
-                parcels: 4, 
-                pportunity: false, 
+                model: "Universal",
+                image: "img/CorreiaDentadaGates.jpg",
+                parcels: 4,
+                opportunity: false,
                 addedAt: Date.now() - 7000000
             },
             {
-                id: 8, 
-                title: "Amortecedor Monroe", 
-                brand: "Monroe", 
-                category: "Suspensão", 
+                id: 8,
+                title: "Amortecedor Monroe",
+                brand: "Monroe",
+                category: "Suspensão",
                 price: 350.00,
-                model: "Universal", 
-                image: "img/AmortecedorMonroe.jpg", 
-                parcels: 5, 
+                model: "Universal",
+                image: "img/AmortecedorMonroe.jpg",
+                parcels: 5,
                 opportunity: true, addedAt: Date.now() - 8000000
             },
             {
-                id: 9, 
-                title: "Filtro de Combustível Fram", 
-                brand: "Fram", 
-                category: "Filtro", 
+                id: 9,
+                title: "Filtro de Combustível Fram",
+                brand: "Fram",
+                category: "Filtro",
                 price: 60.00,
-                model: "Universal", 
-                image: "img/FiltrodeCombustivelFram.jpg", 
-                parcels: 3, 
-                opportunity: false, 
+                model: "Universal",
+                image: "img/FiltrodeCombustivelFram.jpg",
+                parcels: 3,
+                opportunity: false,
                 addedAt: Date.now() - 9000000
             },
             {
-                id: 10, 
-                title: "Pastilha de Freio Bosch - Corolla 2016", 
-                brand: "Bosch", 
-                category: "Freios", 
+                id: 10,
+                title: "Pastilha de Freio Bosch - Corolla 2016",
+                brand: "Bosch",
+                category: "Freios",
                 price: 260.00,
-                model: "Corolla 2016", 
+                model: "Corolla 2016",
                 image: "img/PastilhadeFreioBosch-Corolla2016.jpg",
-                parcels: 5, 
-                opportunity: true, 
+                parcels: 5,
+                opportunity: true,
                 addedAt: Date.now() - 10000000
             }
         ];
@@ -224,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderFilterCheckboxes() {
-        // Marcas - limita a 5, exceto se expandido
         const brandsArr = Array.from(brandsSet).sort();
         const expanded = showMoreBrands.dataset.expanded === '1';
         const limit = expanded ? brandsArr.length : 5;
@@ -237,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         showMoreBrands.textContent = expanded ? 'Ver menos' : 'Ver mais';
 
-        // Categorias
         const categoriesArr = Array.from(categoriesSet).sort();
         categoryList.innerHTML = '';
         categoriesArr.forEach(cat => {
@@ -293,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
         else if (sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
         else if (sort === 'recent') filtered.sort((a, b) => b.addedAt - a.addedAt);
+        else if (sort === 'relevance') filtered.sort(() => 0.5 - Math.random());
 
         currentPage = 1;
         renderProducts();
