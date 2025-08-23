@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finalização de Compra</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+  <!-- Topo laranja -->
+  <div class="top-bar">
+    <span class="top-text">PeçaAq</span>
+  </div>
+
+  <!-- Navbar principal -->
+  <div class="main-nav">
+    <div class="logo">
+      <img src="img/LogoPecaAq3.png" alt="PeçaAq" />
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar produtos, marcas..." />
+      <button class="filter-btn">⚙️ Filtros</button>
+      <button class="search-btn">🔍</button>
+
+      <!-- Dropdown de filtros -->
+      <div class="filter-dropdown">
+        <select id="filtro-carro">
+          <option value="">Selecione o carro</option>
+          <option value="hyundai">Hyundai</option>
+          <option value="ford">Ford</option>
+          <option value="vw">Volkswagen</option>
+        </select>
+
+        <select id="filtro-modelo">
+          <option value="">Selecione o modelo</option>
+          <option value="hb20">HB20</option>
+          <option value="ix35">iX35</option>
+          <option value="golf">Golf</option>
+          <option value="fiesta">Fiesta</option>
+        </select>
+
+        <select id="filtro-peca">
+          <option value="">Selecione a peça</option>
+          <option value="motor">Motor</option>
+          <option value="freio">Freio</option>
+          <option value="suspensao">Suspensão</option>
+          <option value="embreagem">Embreagem</option>
+        </select>
+
+        <button class="apply-filters">Aplicar</button>
+      </div>
+    </div>
+ 
+<button id="cart-button" class="btn-carrinho-header">
+  🛒 <span id="cart-count">0</span>
+</button>
+
+    <!-- Ícones -->
+  
+  </div>
+
+  <!-- Categorias -->
+  <nav class="categories">
+    <a href="#">Carro</a>
+    <a href="#">Moto</a>
+    <a href="#">Pesados</a>
+  </nav>
+</header>
+
+  <main class="checkout-container">
+    <!-- Imagem do produto -->
+    <div class="produto-imagem">
+      <img src="img/peça.webp" alt="Produto" />
+    </div>
+
+    <!-- Detalhes do produto -->
+    <div class="produto-detalhes">
+      <h1>Cilindro Mestre Freio Hyundai ix35 2009 a 2021 - SBC1164</h1>
+      <p class="marca">
+        Marca: <span>Hyundai</span> | Referência: <span>7908449925553</span>
+      </p>
+      <div class="preco-promo">Economize R$ 301,22</div>
+      <div class="preco">
+        <span class="preco-avista">R$ 702,84 à vista</span>
+        <span class="parcelamento">Em até 12x R$ 58,57 sem juros</span>
+      </div>
+      <h3>O que você precisa saber sobre este produto:</h3>
+      <p>
+        Cilindro Mestre Freio Hyundai ix35 2009 a 2021 SBC1164 2.0 16V - (C/ ABS e C/ ESP) (C/ Reservatório) (Duplo) Ø Cilindro 22,22mm (2 furos M12x1). Inicia Hidráulica do Freio, introduzindo e controlando o processo de frenagem. Injetando e comprimindo o óleo (fluido), gerando a pressão por todo o sistema de freios.
+      </p>
+    </div>
+
+    <!-- Caixa lateral de compra -->
+    <aside class="caixa-compra">
+      <div class="info-extra">
+        <p>🔄 <strong>Devolução Grátis</strong> em até 7 dias.</p>
+        <p>✅ <strong>Compra Garantida</strong> ou seu dinheiro de volta.</p>
+      </div>
+
+      <label for="quantidade">Quantidade:</label>
+      <select id="quantidade">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    
+      </select>
+   <button id="btn-finalizar" class="btn-comprar">COMPRAR AGORA</button>
+   <!-- Botão de Adicionar ao Carrinho -->
+<button id="add-to-cart" class="btn-carrinho">Adicionar ao Carrinho</button>
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" placeholder="Digite seu CEP" />
+      <button id="btn-frete" class="btn-frete">CALCULAR FRETE</button>
+
+    
+
+      
+    </aside>
+  </main>
+
+  <!-- Carrossel -->
+  <section class="carrossel-container">
+    <h2>Quem Comprou Comprou Também</h2>
+    <div class="carrossel">
+      <div class="carrossel-track-container">
+        <ul class="carrossel-track">
+          <li class="card">
+            <img src="img/corrente.jpg" alt="Kit Corrente Honda" />
+            <div class="desconto">-30%</div>
+            <p>Kit Corrente Do Honda New Civic 2.0 2007 Até 2014 - 60174 - OK0068</p>
+            <p class="preco-antigo">R$ 1.421,89</p>
+            <p class="preco">R$ 995,32</p>
+            <p class="parcelamento">Em até 12x R$ 82,94 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/cilindro.jpg" alt="Cilindro Mestre" />
+            <div class="desconto">-30%</div>
+            <p>Cilindro Mestre Freio Hyundai ix35 2009 a 2021 - 1351730 - SBC1164</p>
+            <p class="preco-antigo">R$ 1.004,06</p>
+            <p class="preco">R$ 702,84</p>
+            <p class="parcelamento">Em até 12x R$ 58,57 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/filtro.jpg" alt="Filtro Combustível" />
+            <div class="desconto">-10%</div>
+            <p>Filtro Combustível – Turbo – 89685200</p>
+            <p class="preco-antigo">R$ 58,90</p>
+            <p class="preco">R$ 52,90</p>
+            <p class="parcelamento">Em até 1x R$ 52,90 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/porca.jpg" alt="Porca Fixação" />
+            <div class="desconto">-30%</div>
+            <p>Porca Fixação Bomba Combust. LOGAN 1.0 16V 2007/2014 - 109311 - 27027</p>
+            <p class="preco-antigo">R$ 47,32</p>
+            <p class="preco">R$ 33,13</p>
+            <p class="parcelamento">Em até 1x R$ 33,13 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/escapamento.jpg" alt="Escapamento" />
+            <div class="desconto">-20%</div>
+            <p>Escapamento Esportivo Hyundai ix35</p>
+            <p class="preco-antigo">R$ 600,00</p>
+            <p class="preco">R$ 480,00</p>
+            <p class="parcelamento">Em até 12x R$ 40,00 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+
+          <!-- cards 6 a 10 -->
+          <li class="card">
+            <img src="img/embreagem.jpg" alt="Kit Embreagem" />
+            <div class="desconto">-30%</div>
+            <p>Kit Embreagem Hyundai ix35</p>
+            <p class="preco-antigo">R$ 700,00</p>
+            <p class="preco">R$ 490,00</p>
+            <p class="parcelamento">Em até 12x R$ 40,83 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/farolete.jpg" alt="Farolete" />
+            <div class="desconto">-15%</div>
+            <p>Farolete Traseiro Hyundai ix35</p>
+            <p class="preco-antigo">R$ 150,00</p>
+            <p class="preco">R$ 127,50</p>
+            <p class="parcelamento">À vista</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/pneu.jpg" alt="Pneu" />
+            <div class="desconto">-10%</div>
+            <p>Pneu Aro 16 205/55</p>
+            <p class="preco-antigo">R$ 400,00</p>
+            <p class="preco">R$ 360,00</p>
+            <p class="parcelamento">Em até 5x R$ 72,00 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/oleo.jpg" alt="Óleo de Motor" />
+            <div class="desconto">-5%</div>
+            <p>Óleo Sintético 5W-30</p>
+            <p class="preco-antigo">R$ 120,00</p>
+            <p class="preco">R$ 114,00</p>
+            <p class="parcelamento">À vista</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/bateria.jpg" alt="Bateria" />
+            <div class="desconto">-25%</div>
+            <p>Bateria Automotiva 60Ah</p>
+            <p class="preco-antigo">R$ 500,00</p>
+            <p class="preco">R$ 375,00</p>
+            <p class="parcelamento">Em até 10x R$ 37,50 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+
+          <!-- cards 11 a 15 -->
+          <li class="card">
+            <img src="img/vela.jpg" alt="Vela de Ignição" />
+            <div class="desconto">-15%</div>
+            <p>Vela de Ignição Bosch</p>
+            <p class="preco-antigo">R$ 80,00</p>
+            <p class="preco">R$ 68,00</p>
+            <p class="parcelamento">À vista</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/farol.jpg" alt="Farol" />
+            <div class="desconto">-20%</div>
+            <p>Farol Principal Hyundai ix35</p>
+            <p class="preco-antigo">R$ 900,00</p>
+            <p class="preco">R$ 720,00</p>
+            <p class="parcelamento">Em até 12x R$ 60,00 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/embreagem2.jpg" alt="Kit Embreagem 2" />
+            <div class="desconto">-10%</div>
+            <p>Kit Embreagem Hyundai Tucson</p>
+            <p class="preco-antigo">R$ 750,00</p>
+            <p class="preco">R$ 675,00</p>
+            <p class="parcelamento">Em até 12x R$ 56,25 sem juros</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/mola.jpg" alt="Mola" />
+            <div class="desconto">-5%</div>
+            <p>Mola Amortecedora</p>
+            <p class="preco-antigo">R$ 200,00</p>
+            <p class="preco">R$ 190,00</p>
+            <p class="parcelamento">À vista</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+          <li class="card">
+            <img src="img/rolamento.jpg" alt="Rolamento" />
+            <div class="desconto">-15%</div>
+            <p>Rolamento de Roda Dianteira</p>
+            <p class="preco-antigo">R$ 130,00</p>
+            <p class="preco">R$ 110,50</p>
+            <p class="parcelamento">À vista</p>
+            <button class="btn-comprar">COMPRAR AGORA</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="carrossel-controls">
+        <div class="carrossel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Avaliações -->
+  <section class="avaliacoes-container">
+    <h2>Avaliações dos Clientes</h2>
+    <div class="avaliacoes-lista" id="avaliacoes-lista">
+      <!-- Avaliações vão aparecer aqui -->
+    </div>
+
+    <form id="form-avaliacao" class="form-avaliacao">
+      <h3 id="form-title">Deixe sua avaliação</h3>
+      
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required />
+
+      <label for="estrela">Nota:</label>
+      <div id="estrela-container"></div>
+
+      <label for="comentario">Comentário:</label>
+      <textarea id="comentario" rows="3" required></textarea>
+
+      <button type="submit" id="btn-submit">Enviar Avaliação</button>
+      <button type="button" id="btn-cancel" style="display:none; margin-top: 10px;">Cancelar Alteração</button>
+    </form>
+  </section>
+
+  <!-- Modal de pagamento -->
+  <div id="modal-pagamento" class="modal">
+    <div class="modal-content">
+      <span class="fechar" id="fechar">&times;</span>
+      <h2>Escolha o método de pagamento</h2>
+
+      <div class="opcoes-pagamento">
+        <button class="metodo" data-metodo="cartao">💳 Cartão</button>
+        <button class="metodo" data-metodo="pix">⚡ Pix</button>
+      </div>
+
+      <!-- Formulário Cartão -->
+      <div id="pagamento-cartao" class="form-pagamento hidden">
+        <label for="num-cartao">Número do Cartão</label>
+        <input
+          id="num-cartao"
+          type="text"
+          placeholder="XXXX XXXX XXXX XXXX"
+          maxlength="19"
+        />
+        <label for="nome-cartao">Nome no Cartão</label>
+        <input id="nome-cartao" type="text" placeholder="Nome completo" />
+        <label for="validade-cartao">Validade</label>
+        <input id="validade-cartao" type="text" placeholder="MM/AA" maxlength="5" />
+        <label for="cvv-cartao">CVV</label>
+        <input id="cvv-cartao" type="text" placeholder="123" maxlength="3" />
+        <button id="btn-pagar-cartao" class="btn-comprar">Pagar com Cartão</button>
+      </div>
+
+      <!-- Pagamento Pix -->
+      <div id="pagamento-pix" class="form-pagamento hidden">
+        <p>Escaneie o QR Code ou copie o código abaixo:</p>
+        <img
+          src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=chavepix@empresa.com"
+          alt="QR Code Pix"
+        />
+        <textarea readonly>chavepix@empresa.com</textarea>
+        <button id="btn-pagar-pix" class="btn-comprar">Pagar com Pix</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Endereço -->
+  <div id="modal-endereco" class="modal">
+    <div class="modal-content">
+      <span class="fechar" id="fechar-endereco">&times;</span>
+      <h2>Informe seu endereço para entrega</h2>
+      <form id="form-endereco">
+        <label for="rua">Rua:</label>
+        <input type="text" id="rua" required />
+        
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" required />
+        
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" required />
+        
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" required />
+        
+        <label for="cep-endereco">CEP:</label>
+        <input type="text" id="cep-endereco" required />
+        
+        <button type="submit" class="btn-comprar">Confirmar Endereço</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Sucesso -->
+  <div id="modal-sucesso" class="modal">
+    <div class="modal-content">
+      <span class="fechar" id="fechar-sucesso">&times;</span>
+      <h2>Compra Bem Sucedida!</h2>
+      <p>Seu pedido foi confirmado com sucesso.</p>
+      <p><strong>Código de Rastreio:</strong> <span id="codigo-rastreio"></span></p>
+      <button id="btn-fechar-sucesso" class="btn-comprar">Fechar</button>
+    </div>
+  </div>
+
+<div id="carrinhoModal" class="modal">
+  <div class="modal-content">
+    <span id="fecharCarrinho" class="fechar">&times;</span>
+    <h2>🛒 Seu Carrinho</h2>
+    <ul id="listaCarrinho"></ul>
+    <p><strong>Total:</strong> R$ <span id="totalCarrinho">0.00</span></p>
+  </div>
+</div>
+
+  <footer>
+    &copy; 2025 Sua Empresa. Todos os direitos reservados.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

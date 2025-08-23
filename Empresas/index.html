@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PEÇAAQ — Ecossistema de Autopeças</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <!-- Logo: nome da empresa em branco -->
+        <span class="brand-mark" aria-hidden="true">🔧</span>
+        <span class="brand-name">PEÇAAQ</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#suporte" class="pill">Suporte</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero fino (barra com título) -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1>Conectando lojas, distribuidores e fabricantes às oficinas</h1>
+      <p>Leads qualificados • Logística rápida • E-commerce white-label</p>
+    </div>
+  </section>
+
+  <!-- Empresas (acima dos produtos) -->
+  <section id="empresas" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Empresas em destaque</h2>
+        <div class="controls">
+          <input id="buscaEmpresas" type="search" placeholder="Buscar empresa..." />
+        </div>
+      </div>
+
+      <div id="gridEmpresas" class="grid cards-empresas">
+        <!-- Cards de empresas gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Funcionalidades (linha com ícones redondos) -->
+  <section class="section features">
+    <div class="container">
+      <h3>Funcionalidades</h3>
+      <ul class="features-row">
+        <li>
+          <div class="icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18"/></svg>
+          </div>
+          <span>Catálogo Unificado</span>
+        </li>
+        <li>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM4 7l8 6 8-6"/></svg>
+          </div>
+          <span>Orçamentos Rápidos</span>
+        </li>
+        <li>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M3 12l4 4 7-7 7 7"/></svg>
+          </div>
+          <span>Logística Integrada</span>
+        </li>
+        <li>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 1l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-8.5L2 8h7z"/></svg>
+          </div>
+          <span>Avaliações</span>
+        </li>
+        <li>
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6zM9 9h6v6H9z"/></svg>
+          </div>
+          <span>White-label</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Produtos (abaixo das empresas) -->
+  <section id="produtos" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Produtos</h2>
+        <div class="controls">
+          <select id="filtroCategoria">
+            <option value="todos">Todas categorias</option>
+            <option value="carro">Carro</option>
+            <option value="moto">Moto</option>
+          </select>
+          <input id="buscaProdutos" type="search" placeholder="Buscar produto..." />
+        </div>
+      </div>
+
+      <!-- duas fileiras (responsivo em grid) -->
+      <div id="gridProdutos" class="grid cards-produtos">
+        <!-- Cards de produtos gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="suporte" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand brand--footer">
+          <span class="brand-mark">🔧</span>
+          <span class="brand-name">PEÇAAQ</span>
+        </div>
+        <p>Transformando o mercado de autopeças em um ecossistema digital.</p>
+      </div>
+      <nav>
+        <h4>Navegação</h4>
+        <a href="#inicio">Início</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#suporte">Suporte</a>
+      </nav>
+      <div>
+        <h4>Suporte</h4>
+        <p>E-mail: suporte@pecaaq.com</p>
+        <p>WhatsApp: (00) 00000-0000</p>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="ano"></span> PEÇAAQ. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- Modal de ofertas do produto -->
+  <dialog id="modalOfertas">
+    <form method="dialog">
+      <header class="modal-head">
+        <h4 id="modalTitulo">Ofertas</h4>
+        <button aria-label="Fechar" class="btn-close">×</button>
+      </header>
+      <div id="listaOfertas" class="ofertas"></div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

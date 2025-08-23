@@ -1,0 +1,605 @@
+/*
+  ==========================================
+  Seção: Variáveis e Estilos Globais
+  - Define cores, espaçamentos e fontes para fácil customização.
+  - Aplica estilos básicos a todo o corpo do site e ao container principal.
+  ==========================================
+*/
+:root {
+  --bg: #ffffff;       /* fundo branco clean */
+  --card: #f9f9f9;     /* leve cinza para cartões */
+  --accent: #001228;   /* azul escuro principal */
+  --highlight: #FFD300;/* amarelo destaque */
+  --muted: #666;       /* cinza secundário */
+  --radius: 12px;
+  --gap: 20px;
+  --container: 1200px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura de um elemento */
+}
+
+body {
+    margin: 0; /* Remove a margem padrão do body */
+    background: var(--bg); /* Aplica a cor de fundo definida na variável */
+    color: #222; /* Define a cor padrão do texto */
+    font-size: 15px; /* Define o tamanho da fonte padrão */
+    line-height: 1.3; /* Define a altura da linha para melhor legibilidade */
+}
+
+.container {
+    max-width: var(--container); /* Limita a largura do container */
+    margin: 0 auto; /* Centraliza o container na página */
+    padding: var(--gap); /* Adiciona um padding interno */
+}
+
+/*
+  ==========================================
+  Seção: Header Profissional
+  - Estiliza o cabeçalho do site com uma barra de busca e links de navegação separados.
+  - O visual é moderno, limpo e profissional.
+  ==========================================
+*/
+.site-header-professional {
+    background: #fff; /* Fundo branco para o cabeçalho */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Adiciona uma sombra suave para destacar o header */
+    border-bottom: 1px solid #e0e0e0; /* Adiciona uma linha fina na parte de baixo */
+}
+
+.header-top {
+    padding: 10px 0; /* Espaçamento interno na parte superior do cabeçalho */
+}
+
+.header-top-inner {
+    display: flex; /* Habilita o layout flexbox para alinhar os itens */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    gap: 30px; /* Espaço entre os itens */
+    padding: 0 20px;
+}
+
+.site-header-professional .logo-link img {
+    max-height: 120px; /* Altura máxima da imagem do logo */
+    transition: transform 0.2s ease; /* Adiciona uma transição suave para o efeito de zoom */
+}
+
+.site-header-professional .logo-link:hover img {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.site-header-professional .search-wrap {
+    flex-grow: 1; /* Permite que o wrapper da busca ocupe o espaço disponível */
+    max-width: 600px; /* Limita a largura máxima da barra de busca */
+}
+
+.site-header-professional .search-wrap input {
+    width: 100%; /* O input ocupa 100% da largura do seu container */
+    padding: 10px 15px;
+    border-radius: 25px; /* Deixa o input com bordas arredondadas */
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header-professional .search-wrap input:focus {
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    border-color: var(--accent); /* Altera a cor da borda ao focar */
+    box-shadow: 0 0 0 3px rgba(46, 139, 58, 0.2); /* Sombra para indicar foco */
+}
+
+.site-header-professional .btn-cart {
+    display: flex; /* Habilita flexbox para alinhar ícone e texto */
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    background-color: var(--accent); /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Borda arredondada */
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.site-header-professional .btn-cart:hover {
+    background-color: #16712f; /* Escurece a cor ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levitação" ao passar o mouse */
+}
+
+.header-nav {
+    background-color: #3a3535; /* Fundo escuro para a barra de navegação */
+    padding: 10px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centraliza os links horizontalmente */
+    gap: 40px; /* Espaço entre os links */
+    list-style: none; /* Remove os marcadores de lista */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links .nav-item {
+    color: #fff; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-weight: 500;
+    font-size: 15px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-links .nav-item::after {
+    content: ''; /* Cria um pseudo-elemento para o sublinhado animado */
+    position: absolute;
+    width: 0; /* Começa com largura zero */
+    height: 2px;
+    background: var(--accent);
+    bottom: -5px;
+    left: 50%; /* Posiciona no centro horizontal */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-links .nav-item:hover {
+    color: var(--accent); /* Altera a cor do texto ao passar o mouse */
+}
+
+.nav-links .nav-item:hover::after {
+    width: 100%; /* Anima a largura do sublinhado para 100% */
+    left: 0; /* Move o sublinhado para a esquerda */
+}
+
+/*
+  ==========================================
+  Seção: Main Grid e Sidebar (Estilo CompreSuaPeca.com.br)
+  - Estrutura a área principal em duas colunas: filtros e produtos.
+  - Estiliza a barra lateral (sidebar) para os filtros, com base no site de referência.
+  ==========================================
+*/
+.main-grid {
+    display: grid;
+    grid-template-columns: 290px 1fr; /* Coluna para a sidebar e para o conteúdo principal */
+    gap: var(--gap);
+    padding: 20px 16px;
+}
+
+.sidebar {
+    background: var(--card); /* Fundo branco para a sidebar */
+    padding: 20px 18px;
+    border-radius: var(--radius);
+    border: 1px solid #eee;
+    height: calc(100vh - 120px); /* Altura fixa com rolagem interna */
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(46, 139, 58, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h2 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+}
+
+.filter-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Títulos das seções de filtro */
+.filter-block h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-block h3::after {
+    content: '▲'; /* Caractere de seta para indicar expansão/contração */
+    font-size: 12px;
+    color: #555;
+    transition: transform 0.2s ease;
+}
+
+.filter-block.collapsed h3::after {
+    transform: rotate(180deg); /* Rotação da seta quando colapsado */
+}
+
+.filter-block .filter-content {
+    display: block; /* Conteúdo visível por padrão */
+}
+
+.filter-block.collapsed .filter-content {
+    display: none; /* Conteúdo oculto quando colapsado */
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 180px; /* Limita a altura da lista para adicionar scrollbar */
+    overflow-y: auto; /* Adiciona scrollbar vertical quando necessário */
+    padding-right: 4px;
+}
+
+.checkbox-list label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    user-select: none; /* Impede a seleção de texto ao clicar na label */
+    transition: color 0.2s ease;
+}
+
+.checkbox-list label:hover {
+    color: var(--accent); /* Altera a cor do texto ao passar o mouse */
+}
+
+/* Estilização do checkbox */
+.checkbox-list input[type="checkbox"] {
+    -webkit-appearance: none; /* Remove o estilo padrão do navegador (para Webkit) */
+    appearance: none; /* Remove o estilo padrão do navegador (para outros) */
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox-list input[type="checkbox"]:checked {
+    background-color: var(--accent); /* Altera a cor de fundo quando marcado */
+    border-color: var(--accent);
+}
+
+.checkbox-list input[type="checkbox"]:checked::after {
+    content: '✔'; /* Adiciona o ícone de check quando marcado */
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o ícone de check */
+}
+
+.filter-block .link-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 6px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.filter-block .link-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.filter-block input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.content {
+    padding: 6px;
+}
+
+.content-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.products-count {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.sort-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.sort-wrap label {
+    font-size: 14px;
+    color: #555;
+}
+
+.sort-wrap select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de produtos por padrão */
+    gap: 14px;
+}
+
+/*
+  ==========================================
+  Seção: Cards de Produtos
+  - Estiliza os cards individuais de cada produto.
+  - Inclui efeitos de transição para um visual mais dinâmico.
+  ==========================================
+*/
+.product-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    height: 350px;
+    width: 200px;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Efeito de elevação ao passar o mouse */
+}
+
+.product-card .img-wrap {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    height: 160px;
+}
+
+.product-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+}
+
+.product-card .product-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 10px;
+    min-height: 40px;
+    line-height: 1.3em;
+}
+
+.product-card .price {
+    color: #e05c0b; /* Cor de destaque para o preço */
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 10px;
+}
+
+.product-card .installments {
+    font-size: 13px;
+    color: #777;
+    margin: 0 10px 10px;
+}
+.btn-cart, .buy-btn {
+  background: var(--highlight);
+  color: var(--accent);
+  font-weight: 700;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-cart:hover, .buy-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.product-card .buy-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 10px 12px;
+    width: calc(100% - 20px);
+    transition: background 0.2s ease;
+}
+
+.product-card .buy-btn:hover {
+    background: #16712f;
+}
+
+/*
+  ==========================================
+  Seção: Paginação e Botão WhatsApp
+  - Estiliza os botões de navegação da página.
+  - Define a posição e o estilo do botão flutuante do WhatsApp.
+  ==========================================
+*/
+.pagination {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+    color: var(--muted);
+}
+
+.whatsapp {
+    position: fixed; /* Fixa a posição do botão na tela */
+    right: 20px; /* Distância da borda direita */
+    bottom: 20px; /* Distância da borda inferior */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%; /* Transforma o botão em um círculo */
+    border: 0;
+    background: #25d366;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/*
+  ==========================================
+  Seção: Rodapé (Footer)
+  - Estrutura e estiliza o rodapé do site.
+  - Inclui seções para contato, links úteis e redes sociais.
+  ==========================================
+*/
+.site-footer {
+    background: #3a3535; /* Cor de fundo escura para o rodapé */
+    color: #eee;
+    padding: 40px 0 20px;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide o rodapé em 3 colunas */
+    gap: 30px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--accent); /* Linha de destaque ao lado dos títulos */
+    padding-left: 10px;
+}
+
+.footer-section p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent); /* Altera a cor do link ao passar o mouse */
+}
+
+.copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/*
+  ==========================================
+  Seção: Responsividade Geral
+  - Ajusta o layout para diferentes tamanhos de tela (mobile e tablets).
+  ==========================================
+*/
+@media (max-width: 1000px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr); /* Altera para 3 colunas em telas menores */
+    }
+    .main-grid {
+        grid-template-columns: 240px 1fr;
+        padding: 20px 14px;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Altera para 1 coluna em telas de tablet e mobile */
+        padding: 10px 14px;
+    }
+    .sidebar {
+        position: static;
+        height: auto;
+        padding: 16px 12px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* Altera para 2 colunas em telas de tablet */
+    }
+    .header-top-inner {
+        flex-direction: column; /* Organiza o header em uma coluna */
+        align-items: center;
+        gap: 15px;
+    }
+    .header-top {
+        padding-bottom: 0;
+    }
+    .header-nav {
+        padding-top: 0;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .site-header-professional .logo-link img {
+        max-height: 60px; /* Reduz o tamanho do logo */
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-section h4 {
+        border-left: none; /* Remove a borda lateral */
+        padding-left: 0;
+        border-bottom: 2px solid var(--accent); /* Adiciona uma borda inferior */
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 420px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* Altera para 1 coluna em telas de celular */
+    }
+}

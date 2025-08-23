@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PeçaAq - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="login-container">
+        <section class="login-card" aria-label="Login do PeçaAq">
+
+            <!-- Logo no canto superior esquerdo -->
+            <div class="brand">
+                <img src="imgLogin/imgLogin-removebg-preview.png" alt="Logo PeçaAq">
+            </div>
+
+            <!-- Abas de ação: Sou Cliente / Sou Empresa -->
+            <div class="tab-selector" aria-label="Seleção de tela">
+                <button class="tab active" data-tab="cliente">Sou Cliente</button>
+                <button class="tab" data-tab="empresa">Sou Empresa</button>
+            </div>
+
+            <!-- Conteúdo dinâmico -->
+            <div class="content-area">
+
+                <!-- Login Cliente (mostra por padrão) -->
+                <form id="form-cliente" class="login-form active" autocomplete="on" novalidate>
+                    <div class="form-field">
+                        <label for="email-cliente">E-mail</label>
+                        <input type="email" id="email-cliente" placeholder="exemplo@dominio.com" required />
+                    </div>
+                    <div class="form-field">
+                        <label for="senha-cliente">Senha</label>
+                        <input type="password" id="senha-cliente" placeholder="Sua senha" required />
+                    </div>
+                    <button type="submit" class="primary-btn btn-modern">Entrar</button>
+
+                    <!-- Link de cadastro rápido (opcional) -->
+                    <p class="hint">
+                        Não tem uma conta? <a href="#" class="link-to-cadastro" data-context="cliente">Cadastre-se</a>
+                    </p>
+                </form>
+
+                <!-- Login Empresa (inicialmente oculto) -->
+                <form id="form-empresa" class="login-form" autocomplete="on" novalidate style="display:none;">
+                    <div class="form-field">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" id="cnpj" placeholder="00.000.000/0000-00" required />
+                    </div>
+                    <div class="form-field">
+                        <label for="senha-empresa">Senha</label>
+                        <input type="password" id="senha-empresa" placeholder="Sua senha" required />
+                    </div>
+                    <button type="submit" class="primary-btn btn-modern">Entrar</button>
+
+                    <p class="hint">
+                        Não tem uma conta? <a href="#" class="link-to-cadastro" data-context="empresa">Cadastre-se</a>
+                    </p>
+                </form>
+
+                <!-- Cadastro separado (inicialmente oculto) -->
+                <form id="cadastroForm" class="cadastro-form" autocomplete="on" novalidate style="display:none;">
+                    
+
+                    <div class="form-field">
+                        <label for="cadastroTipo">Tipo de cadastro</label>
+                        <select id="cadastroTipo" required>
+                            <option value="cliente">Cliente</option>
+                            <option value="empresa">Empresa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field" id="cadastroNomeField">
+                        <label for="cadastroNome">Nome / Razão Social</label>
+                        <input type="text" id="cadastroNome" placeholder="Seu nome ou razão social" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cadastroEmail">E-mail</label>
+                        <input type="email" id="cadastroEmail" placeholder="exemplo@dominio.com" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cadastroSenha">Senha</label>
+                        <input type="password" id="cadastroSenha" placeholder="Sua senha" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cadastroSenha2">Confirmação de senha</label>
+                        <input type="password" id="cadastroSenha2" placeholder="Confirme a senha" required />
+                    </div>
+
+                    <!-- Campos específicos (exemplo) -->
+                    <div class="form-field" id="cadastroCpfCnpjField">
+                        <label for="cadastroCpfCnpj">CPF / CNPJ</label>
+                        <input type="text" id="cadastroCpfCnpj" placeholder="Somente números" required />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cadastroTelefone">Telefone</label>
+                        <input type="tel" id="cadastroTelefone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                   
+                    
+                    <button type="submit" class="primary-btn btn-modern">Cadastrar</button>
+                 <!-- Rodapé no final do formulário de cadastro (ou onde fizer sentido) -->
+                   <div id="cadastro-rodape" class="cadastro-footer cadastro-rodape-left" style="text-align:left;">
+  <span>Já tem uma conta? </span><a href="#" id="link-login" class="link-to-login">Entrar</a>
+</div>
+</form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
